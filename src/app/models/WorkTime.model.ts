@@ -9,6 +9,9 @@ import {UserModel} from "./User.model";
 })
 export class WorkTimeModel extends AbstractModel {
   @Attribute()
+  id: string;
+
+  @Attribute()
   created: Date;
 
   @Attribute()
