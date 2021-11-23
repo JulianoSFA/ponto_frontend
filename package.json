@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "start.server": "ng serve --port 4200 --poll=2000 --host 0.0.0.0"
   },
   "private": true,
   "dependencies": {
