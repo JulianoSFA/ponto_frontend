@@ -18,7 +18,7 @@ const config: DatastoreConfig = {
 @JsonApiDatastoreConfig(config)
 export class DataStore extends JsonApiDatastore {
 
-  constructor(http: HttpClient) {
+  constructor(protected http: HttpClient,) {
     super(http);
   }
 

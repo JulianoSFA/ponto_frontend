@@ -4,7 +4,7 @@ import {UserModel} from "./User.model";
 
 
 @JsonApiModelConfig({
-  type: 'WorkTimer',
+  type: 'WorkTime',
   modelEndpointUrl: 'ponto/work-time'
 })
 export class WorkTimeModel extends AbstractModel {
