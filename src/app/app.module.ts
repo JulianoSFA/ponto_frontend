@@ -7,6 +7,18 @@ import {JsonApiModule} from "angular2-jsonapi";
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {ApiInterceptor} from "./api.interceptor";
 import { LoginComponent } from './modules/login/login.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  NbThemeModule,
+  NbLayoutModule,
+  NbSidebarModule,
+  NbButtonModule,
+  NbCardModule,
+  NbInputModule
+} from '@nebular/theme';
+import { NbEvaIconsModule } from '@nebular/eva-icons';
+import {ReactiveFormsModule} from "@angular/forms";
+import {NbAuthModule, NbPasswordAuthStrategy} from "@nebular/auth";
 
 @NgModule({
   declarations: [
@@ -16,7 +28,33 @@ import { LoginComponent } from './modules/login/login.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    JsonApiModule
+    JsonApiModule,
+    BrowserAnimationsModule,
+    NbThemeModule.forRoot({name: 'dark'}),
+    NbLayoutModule,
+    NbEvaIconsModule,
+    NbSidebarModule,
+    NbButtonModule,
+    NbCardModule,
+    NbInputModule,
+    ReactiveFormsModule,
+
+    NbAuthModule.forRoot({
+      strategies: [
+        NbPasswordAuthStrategy.setup({
+          name: 'email',
+          baseEndpoint: '',
+          login: {
+            endpoint: '/api/token/',
+            redirect: {
+              success: '/',
+              failure: null
+            }
+          },
+        }),
+      ],
+      forms: {},
+    })
   ],
   providers: [
     {
