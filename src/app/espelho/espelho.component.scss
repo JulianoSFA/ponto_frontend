@@ -1,0 +1,31 @@
+.menu_lateral{
+    width: 16rem;
+    height: 100%;
+    position: fixed;
+    z-index: 9999;
+    display: block;
+}
+
+.items{
+    max-height: 50rem;
+    overflow-y: scroll;
+    overflow-x: clip;
+}
+.logo{
+    width: 100%;
+}
+.backg {
+    background-color:#0d6efd;
+}
+.bg-button{
+    background-color: #198754;
+}
+.row{
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: 120px;
+}
+.rodape{
+    background-color: white;
+    
+}
