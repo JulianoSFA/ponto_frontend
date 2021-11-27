@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "start.server": "ng serve --port 4200 --poll=2000 --host 0.0.0.0"
   },
   "private": true,
   "dependencies": {
@@ -18,7 +19,10 @@
     "@angular/platform-browser": "~12.2.0",
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",
-    "rxjs": "~6.6.0",
+    "angular2-jsonapi": "^8.2.1",
+    "bootstrap": "^5.1.3",
+    "rxjs": "^6.6.3",
+    "rxjs-compat": "^6.6.3",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
