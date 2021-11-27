@@ -1,0 +1,43 @@
+body {
+  background-color: #4fa8b8;
+  font-family: sans-serif;
+  max-width: 40em;
+  margin: 2em auto;
+}
+
+main {
+  text-align: center;
+  font-size: 2em;
+}
+
+input{
+  min-width: 140px;
+  text-align: center;
+}
+
+img{
+  width: 250px;
+  height: auto;
+}
+
+.button {
+  font: times;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0.4em;
+  border: 0;
+  padding: 0.4em 1em;
+  text-decoration: none;
+  color: #FFF;
+  background: #F60;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  border-radius: 0.5em;
+  box-shadow: 1px 1px 0 1px #930;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.button:active {
+  box-shadow: 0 0 0 0 #930,
+  inset 4px 4px 4px #930;
+  transform: translate(6px, 6px);
+}

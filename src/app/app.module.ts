@@ -6,10 +6,12 @@ import { AppComponent } from './app.component';
 import {JsonApiModule} from "angular2-jsonapi";
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {ApiInterceptor} from "./api.interceptor";
+import { LoginComponent } from './modules/login/login.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

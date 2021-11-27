@@ -1,0 +1,44 @@
+<div class="container col">
+  <div>
+    <div class="row justify-content-center">
+      <img src="./assets/logo1.png">
+    </div>
+
+    <h1 style="text-transform: capitalize;" class="row justify-content-center">Projeto Integrador (PI)</h1>
+
+    <div class="row justify-content-center">
+      <output id="hora" style="font-family: 'arial black', 'avant garde'; font-size: 22px;"></output>
+    </div>
+
+    <output id="data" style="font-family: 'arial black', 'avant garde'; font-size: 20px;" class="row justify-content-center"></output>
+    <div class="row justify-content-center pt-5">
+      <form method="post" action="">
+        <h1 class="d-flex justify-content-center">Login</h1>
+        <div class="d-flex justify-content-center flex-wrap pt-2">
+          <div>
+            <label for="nome_usuario" ><b>Usuário:</b></label>
+            <input id="nome_usuario" name="nome_usuario" required="required" type="text" size="12" maxlength="10"
+                   placeholder="Nome de Usuário" class="pl-2"/>
+          </div>
+          <div>
+            <label for="senha"><b>Senha:</b></label>
+            <input id="senha" name="senha" required="required" type="password" size="12" maxlength="20"
+                   placeholder="Senha" style="text-align: center"/>
+          </div>
+        </div>
+        <div class="pt-5">
+          <form action="/pagina-processa-dados-do-form" method="post">
+            <div class="registro d-flex justify-content-center">
+              <button class="button" type="submit">
+                <span class="registro"><b>Registrar Ponto</b></span>
+              </button>
+            </div>
+          </form>
+          <div class="d-flex justify-content-center">
+            <button type="submit" class="button"><b>Entrar</b></button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
