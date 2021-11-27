@@ -1,0 +1,137 @@
+<html>
+    <head>
+        <style>
+            body {
+            background-color: #4fa8b8
+            }
+            </style>
+        <title>Registro de Ponto</title>
+        
+        <style>
+            body {
+                font-family: sans-serif;
+            }
+            body {
+                max-width: 40em;
+                margin: 2em auto;
+            }
+            main {
+                text-align: center;
+                font-size: 2em;
+            }
+            .button {
+                font: times;
+                cursor: pointer;
+            }
+            .button {
+                display: inline-block;
+                margin: 0.4em;
+                border: 0;
+                padding: 0.4em 1em;
+                text-decoration: none;
+                color: #FFF;
+                background: #F60;
+                text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+                border-radius: 0.5em;
+                box-shadow: 1px 1px 0 1px #930;
+                transition: box-shadow 0.3s ease, transform 0.3s ease;
+            }
+            .button:active {
+                box-shadow: 0 0 0 0 #930,
+                            inset 4px 4px 4px #930;
+                transform: translate(6px, 6px);
+            }
+        </style>
+    </head>
+    <body>
+        <center>
+                    <img src="img/logo1.png">
+                    <font color="black">       
+
+                    <h1 style="text-transform: capitalize;">Projeto Integrador (PI)</h1>
+
+                        <script src="https://code.jquery.com/jquery-1.11.2.js"></script>
+                        <script type="text/javascript">
+                            jQuery(window).load(function($){
+                                atualizaRelogio();
+                            });
+                        </script>
+                    </HEAD>
+                    <BODY>
+                        <div>
+                            <output id="hora" style="font-family: 'arial black', 'avant garde'; font-size: 22px;"></output>				
+                        </div>			
+                        </div>
+                            <output id="data" style="font-family: 'arial black', 'avant garde'; font-size: 20px;"></output>
+                    </BODY>
+                    <script>
+                        function atualizaRelogio(){ 
+                            var momentoAtual = new Date();
+                            
+                            var vhora = momentoAtual.getHours();
+                            var vminuto = momentoAtual.getMinutes();
+                            var vsegundo = momentoAtual.getSeconds();
+                            
+                            var vdia = momentoAtual.getDate();
+                            var vmes = momentoAtual.getMonth() + 1;
+                            var vano = momentoAtual.getFullYear();
+                            
+                            if (vdia < 10){ vdia = "0" + vdia;}
+                            if (vmes < 10){ vmes = "0" + vmes;}
+                            if (vhora < 10){ vhora = "0" + vhora;}
+                            if (vminuto < 10){ vminuto = "0" + vminuto;}
+                            if (vsegundo < 10){ vsegundo = "0" + vsegundo;}
+                
+                            dataFormat = vdia + " / " + vmes + " / " + vano;
+                            horaFormat = vhora + " : " + vminuto + " : " + vsegundo;
+                
+                            document.getElementById("data").innerHTML = dataFormat;
+                            document.getElementById("hora").innerHTML = horaFormat;
+                
+                            setTimeout("atualizaRelogio()",1000);
+                            
+                        }
+                    </script>
+            <body>
+                <center>               
+                          <div class="content">      
+                            <div id="login">
+                              <form method="post" action=""> 
+                                <h1>Login</h1> 
+                                <label for="nome_usuario"><b>Usuário:</b></label>
+                                  <input id="nome_usuario" name="nome_usuario" required="required" type="text" size= "12" maxlength="10"
+                                         placeholder="Nome de Usuário"style="text-align: center" />
+                                  <label for="senha"><b>Senha:</b></label>
+                                  <input id="senha" name="senha" required="required" type="password" size= "12" maxlength="20"
+                                         placeholder="Senha"style="text-align: center" />
+            <body>
+                <center>
+                        <form action="/pagina-processa-dados-do-form" method="post">
+                            <div class="registro">
+                                <button class="button" type="submit"><div class="registro"><b>Registrar Ponto</b></button>
+                            </div>
+                        </form>
+                        <button type="submit" class="button"><b>Entrar</b></button>
+                                <div class="entrar"></div>
+                            </div>
+                        </div>
+                </div> 
+                        <form action="/pagina-processa-dados-do-form" method="post">
+                        <div class="autenticar">
+                                <div class="administrador">
+                                    <label for="numeroversao"><b>Administrador:</b></label>
+                                    <div class="buttons">
+                                        <input type="password" min="1" id="senhaadm" name="senhaadm" required="required" class="form-control mousetrap" size= "10"
+                                               placeholder="Administrador"style="text-align: center" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="button" id="btnConfirmarSenhaADM"><b>Autenticar</b></button>
+                                        <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>       
+           </body>
+</html>
