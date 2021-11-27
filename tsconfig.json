@@ -8,8 +8,6 @@
     "strict": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "strictPropertyInitialization": false,
-    "emitDecoratorMetadata": true,
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
