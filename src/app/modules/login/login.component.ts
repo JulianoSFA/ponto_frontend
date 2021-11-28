@@ -6,6 +6,8 @@ import firebase from 'firebase/compat/app';
 import {Observable} from "rxjs/Observable";
 import { Injectable } from '@angular/core';
 import {AuthUserService} from "../../services/auth-user.service";
+import {AppRoutingModule} from "../../app-routing.module";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
