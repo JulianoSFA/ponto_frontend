@@ -26,7 +26,7 @@ import {AngularFirestore, AngularFirestoreModule} from "@angular/fire/compat/fir
 @NgModule({
   declarations: [
     AppComponent,
-    EspelhoComponent
+    EspelhoComponent,
     LoginComponent
   ],
   imports: [
