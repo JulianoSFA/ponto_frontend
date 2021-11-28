@@ -4,7 +4,16 @@
 
 export const environment = {
   apiPath: 'http://localhost:8000',
-  production: false
+  production: false,
+  firebaseConfig: {
+    apiKey: "AIzaSyBbXrLOq5SibpkNof_ALA1LGvcuy8ijkMg",
+    authDomain: "pi-ponto.firebaseapp.com",
+    projectId: "pi-ponto",
+    storageBucket: "pi-ponto.appspot.com",
+    messagingSenderId: "295602542836",
+    appId: "1:295602542836:web:6c962a917d30e5228966a1",
+    measurementId: "G-5HDQJ0GLY1"
+  }
 };
 
 /*
