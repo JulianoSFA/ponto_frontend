@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { EspelhoComponent } from './espelho/espelho.component';
 import {JsonApiModule} from "angular2-jsonapi";
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {ApiInterceptor} from "./api.interceptor";
@@ -25,6 +26,7 @@ import {AngularFirestore, AngularFirestoreModule} from "@angular/fire/compat/fir
 @NgModule({
   declarations: [
     AppComponent,
+    EspelhoComponent
     LoginComponent
   ],
   imports: [
