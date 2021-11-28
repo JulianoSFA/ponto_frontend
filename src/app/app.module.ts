@@ -19,6 +19,7 @@ import {
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import {ReactiveFormsModule} from "@angular/forms";
 import {NbAuthModule, NbPasswordAuthStrategy} from "@nebular/auth";
+import {environment} from "../environments/environment";
 
 @NgModule({
   declarations: [
@@ -43,18 +44,20 @@ import {NbAuthModule, NbPasswordAuthStrategy} from "@nebular/auth";
       strategies: [
         NbPasswordAuthStrategy.setup({
           name: 'email',
-          baseEndpoint: '',
+
+          baseEndpoint: environment.apiPath,
           login: {
-            endpoint: '/api/token/',
-            redirect: {
-              success: '/',
-              failure: null
-            }
+            // ...
+            endpoint: '/api/auth/login',
+          },
+          register: {
+            // ...
+            endpoint: '/api/auth/register',
           },
         }),
       ],
       forms: {},
-    })
+    }),
   ],
   providers: [
     {
