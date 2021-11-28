@@ -18,8 +18,9 @@ import {
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import {ReactiveFormsModule} from "@angular/forms";
-import {NbAuthModule, NbPasswordAuthStrategy} from "@nebular/auth";
 import {environment} from "../environments/environment";
+import {AngularFireModule} from "@angular/fire/compat";
+import {AngularFirestore, AngularFirestoreModule} from "@angular/fire/compat/firestore";
 
 @NgModule({
   declarations: [
@@ -39,25 +40,8 @@ import {environment} from "../environments/environment";
     NbCardModule,
     NbInputModule,
     ReactiveFormsModule,
-
-    NbAuthModule.forRoot({
-      strategies: [
-        NbPasswordAuthStrategy.setup({
-          name: 'email',
-
-          baseEndpoint: environment.apiPath,
-          login: {
-            // ...
-            endpoint: '/api/auth/login',
-          },
-          register: {
-            // ...
-            endpoint: '/api/auth/register',
-          },
-        }),
-      ],
-      forms: {},
-    }),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule
   ],
   providers: [
     {

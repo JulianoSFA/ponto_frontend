@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {Observable} from "rxjs/Observable";
-import {NbAuthResult, NbAuthService, NbTokenService} from '@nebular/auth';
 import {UserSignIn} from "../../components/user-sign-in.interface";
-import {tap} from "rxjs/operators";
+import { AngularFireAuth } from "@angular/fire/compat/auth";
+import firebase from 'firebase/compat/app';
+import {Observable} from "rxjs/Observable";
+import { Injectable } from '@angular/core';
 import {AuthUserService} from "../../services/auth-user.service";
 
 @Component({
@@ -11,7 +12,7 @@ import {AuthUserService} from "../../services/auth-user.service";
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   public form: FormGroup;
   public loginError = false;
   public signInFormLoading = false;
@@ -23,12 +24,42 @@ export class LoginComponent implements OnInit {
   };
   private submitted: boolean;
 
-  constructor(private formBuilder: FormBuilder,
-              protected nbAuth: NbAuthService,
-              protected nbTokenService: NbTokenService,
-              protected authUser: AuthUserService) {
-    this.strategy = 'NbPasswordAuthStrategy';
+  constructor(public auth: AuthUserService,
+              public formBuilder: FormBuilder) {
   }
+
+  signUp(){
+    if (!this.form.valid){
+      this.loginError = true;
+      return
+    }
+    const username = this.form.get('username')?.value;
+    const password = this.form.get('password')?.value;
+    this.auth.signUp(username, password)
+  }
+
+  signIn(){
+    if (!this.form.valid){
+      this.loginError = true;
+      return
+    }
+    const username = this.form.get('username')?.value;
+    const password = this.form.get('password')?.value;
+    this.auth.signIn(username, password)
+  }
+
+  signOut() {
+    this.auth.signOut();
+  }
+
+  // login() {
+  //   this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then( response => {
+  //     console.log(response)
+  //   });
+  // }
+  // logout() {
+  //   this.auth.signOut().then();
+  // }
 
   ngOnInit(): void {
     this.initForm()
@@ -78,42 +109,43 @@ export class LoginComponent implements OnInit {
   }
 
 
-  OnSubmit() {
-    if (!this.form.valid){
-      this.loginError = true;
-      return
-    }
-    this.signInFormLoading = true;
-    this.signIn().subscribe((result: NbAuthResult) => {
-      this.signInFormLoading = false;
-      // Ir para a outra pagina
-    },
-      (error => {
-        console.log('Erro: ', error)
-        this.loginError = true;
-    }))
-  }
+  // OnSubmit() {
+  //   if (!this.form.valid){
+  //     this.loginError = true;
+  //     return
+  //   }
+  //   this.signInFormLoading = true;
+  //   this.signIn().subscribe((result: NbAuthResult) => {
+  //     this.signInFormLoading = false;
+  //     // Ir para a outra pagina
+  //   },
+  //     (error => {
+  //       console.log('Erro: ', error)
+  //       this.loginError = true;
+  //   }))
+  // }
+  //
+  // signIn(): Observable<NbAuthResult> {
+  //   this.submitted = true;
+  //
+  //   return this.nbAuth.authenticate(this.strategy, this.user)
+  //     .pipe(
+  //       tap(
+  //         (result: NbAuthResult) => {
+  //           this.onAuthenticateResult(result);
+  //         }));
+  // }
+  //
+  // private onAuthenticateResult(result: NbAuthResult) {
+  //   this.submitted = false;
+  //   if (result.isSuccess()) {
+  //     const token = result.getToken();
+  //     this.nbTokenService.set(token);
+  //     const payload = token.getPayload();
+  //     if (payload.user_id) {
+  //       this.authUser.loadUser(payload.user_id);
+  //     }
+  //   }
+  // }
 
-  signIn(): Observable<NbAuthResult> {
-    this.submitted = true;
-
-    return this.nbAuth.authenticate(this.strategy, this.user)
-      .pipe(
-        tap(
-          (result: NbAuthResult) => {
-            this.onAuthenticateResult(result);
-          }));
-  }
-
-  private onAuthenticateResult(result: NbAuthResult) {
-    this.submitted = false;
-    if (result.isSuccess()) {
-      const token = result.getToken();
-      this.nbTokenService.set(token);
-      const payload = token.getPayload();
-      if (payload.user_id) {
-        this.authUser.loadUser(payload.user_id);
-      }
-    }
-  }
 }
